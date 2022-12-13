@@ -3,16 +3,18 @@ import 'package:talkbox/features/auth/auth.dart';
 
 import 'navigators.dart';
 
-Route generateRoute(RouteSettings settings)  {
+Route generateRoute(RouteSettings settings) {
   switch (settings.name) {
-      case  RouteName.home:
+    case RouteName.home:
       return _getPageRoute(
         routeName: settings.name!,
         viewToShow: const HomeScreen(),
       );
-      
-     
-       default:
+    case RouteName.continuewithPhoneNumber:
+      return _getPageRoute(
+          routeName: settings.name!, viewToShow: const ContinuewithPhoneNumber());
+
+    default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(
           body: Center(
@@ -22,9 +24,6 @@ Route generateRoute(RouteSettings settings)  {
       );
   }
 }
-
-
-
 
 Route<dynamic> _getPageRoute({
   required String routeName,

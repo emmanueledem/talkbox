@@ -1,6 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:talkbox/app/shared/assets.dart';
 import 'package:talkbox/app/shared/colors.dart';
+import 'package:talkbox/app/widget/busy_button.dart';
+import 'package:talkbox/core/navigators/navigators.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -121,26 +125,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(height: 90),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(100)),
-                    color: Color(0XFF3E7FE0),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 58, vertical: 16),
-                    child: Text(
-                      'Continue with Phone Number',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
+              BusyButton(
+                fontSize: 16,
+                text: 'Continue with Phone Number',
+                onPress: () {
+                  Navigator.pushNamed(
+                      context, RouteName.continuewithPhoneNumber);
+                },
               ),
               const SizedBox(height: 32),
               const Text(
